@@ -1,7 +1,14 @@
 name: 02_Print_Env_Vars
 
 on:
-  [push]
+  push:
+    branches:
+      - main
+    branches-ignore:
+      - develop
+  pull_request:
+    branches:
+      - main
 
 jobs:
   job1:
