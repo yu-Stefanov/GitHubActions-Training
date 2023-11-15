@@ -1,4 +1,4 @@
-name: 02_P
+name: 02_Print_Env_Vars
 
 on:
   [push]
