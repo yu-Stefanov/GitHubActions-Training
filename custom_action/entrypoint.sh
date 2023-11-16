@@ -23,8 +23,30 @@ jq . < $EVENT_PATH
 # Will extract the message from the event path
 if jq '.commits[].message, .head_commit.message' < $EVENT_PATH | grep -i -q "$*";
 then
-    # do something
-    echo "Found keyword."
+  # do something
+  # Create a version vars. Will be used to name and tag the release
+    VERSION=$(date +%F.%s)
+
+    # We use the version var and printf statements to format a JSON string and store it in var named DATA
+    # Will be posted to github api to create the release
+    DATA="$(printf '{"tag_name":"v%s",' $VERSION)"
+    DATA="${DATA} $(printf '"target_commitish":"master",')"
+    DATA="${DATA} $(printf '"name":"v%s",' $VERSION)"
+    DATA="${DATA} $(printf '"body":"Automated release based on keyword: %s",' "$*")"
+    DATA="${DATA} $(printf '"draft":false, "prerelease":false}')"
+
+    # We use the github repos var to build the URL that well use to post to the API
+    # We will also add the github token var so our call to the API can authenticate to our github account
+    URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases?access_token=${GITHUB_TOKEN}"
+
+    # if its a local test then we dont want to post to the API
+    if [[ "${LOCAL_TEST}" == *"true"* ]];
+    then
+        echo "## [TESTING] Keyword was found but no release was created."
+    else
+        # Post to the API
+        echo $DATA | http POST $URL | jq .
+    fi
 # otherwise
 else
     # exit gracefully
