@@ -7,9 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2            
-      - name: Setup Python
-        uses: actions/setup-python@v4.7.1
-      - name: Run Python script  
-        uses: jannekem/run-python-script-action@v1.6
-        with:
-          script: "challenge_script.py"
+      - run: challenge_script.py
