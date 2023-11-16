@@ -17,6 +17,7 @@ RUN apk add --no-cache \
 
 # Copies our script to the container
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY sample_push_event.json /sample_push_event.json
 
 # The command our container will run when its executed
 ENTRYPOINT ["entrypoint.sh"]
