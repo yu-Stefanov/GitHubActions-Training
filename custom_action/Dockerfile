@@ -20,3 +20,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 # The command our container will run when its executed
 ENTRYPOINT ["entrypoint.sh"]
+
+# docker build --tag keyword-release . -> tells Docker to tag the image with the name keyword-release 
+# the dot at the end tells Docker to build the image using the files inside the directory where the command is being run.
+
