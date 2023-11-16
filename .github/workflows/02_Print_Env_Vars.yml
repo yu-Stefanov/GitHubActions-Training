@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
     branches-ignore:
       - develop
-  pull_request:
-    branches:
-      - main
 
 jobs:
   job1:
