@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2            
-      - run: challenge_script.py
+      - run: python challenge_script.py
