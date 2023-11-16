@@ -1,30 +1,30 @@
-name: 02_Section_End_Challenge
+# name: 02_Section_End_Challenge
 
-on: push
+# on: push
 
-jobs:
-  job1:
-    name: Print Date with ubuntu
-    runs-on: ubuntu-latest
-    steps:
-      - name: Job1 - step one
-        run: date
-  job2:
-    name: Print Date with windows
-    runs-on: windows-latest
-    steps:
-      - name: Job2 - step one
-        run: date
-  job3:
-    name: Print Date with macos
-    runs-on: macos-latest
-    steps:
-      - name: Job3 - step one
-        run: date
-  job4:
-    name: Print Date with ubuntu (custom)
-    runs-on: ubuntu-latest
-    needs: [job1, job2, job3]
-    steps:
-      - name: Job4 - step one
-        run: date
+# jobs:
+#   job1:
+#     name: Print Date with ubuntu
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Job1 - step one
+#         run: date
+#   job2:
+#     name: Print Date with windows
+#     runs-on: windows-latest
+#     steps:
+#       - name: Job2 - step one
+#         run: date
+#   job3:
+#     name: Print Date with macos
+#     runs-on: macos-latest
+#     steps:
+#       - name: Job3 - step one
+#         run: date
+#   job4:
+#     name: Print Date with ubuntu (custom)
+#     runs-on: ubuntu-latest
+#     needs: [job1, job2, job3]
+#     steps:
+#       - name: Job4 - step one
+#         run: date
