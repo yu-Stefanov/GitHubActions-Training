@@ -4,7 +4,7 @@
 
 - In a terminal, run the following commands to initialize the directory as a git repository.
 
-        git init
+        git inite
         git add .
         git commit -m 'first check in'
 
